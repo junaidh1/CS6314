@@ -12,7 +12,7 @@ For development, you will need Node.js and a package manager, npm, installed on 
 
 We will need to install `nvm`, which is a Node Version Manager. It allows you to have different Node versions and switch between them easily. It also automatically installs npm for you, too.
 
-- [Windows (WSL)](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Windows (WSL)](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 - [Mac/Linux](https://github.com/nvm-sh/nvm)
 
 Make sure you verify Node and npm are correctly installed on your system with the following commands:
@@ -55,7 +55,7 @@ The project is split into two main folders: `frontend` and `backend`. Here's an 
 We will adopt a simiplistic branching method to allow some organization, while not restricting development time.
 
 - `main` branch: This branch is the stable production-ready branch. It should always contain working code that can be deployed.
-- `dev` branch: Create a develop branch that serves as the integration branch for ongoing development. Features and bug fixes are merged into this branch.
+- `dev` branch: Create a dev branch that serves as the integration branch for ongoing development. Features and bug fixes are merged into this branch. **Majority of code development will be coming from this branch**
     - `feat` branches: For each feature or task, create a feature branch from `dev`. The branch name should be descriptive, like `feat/user-signup` or `feat/cart-functionality`. Develop the feature in this branch and submit a pull request (PR) back to the `dev` branch when it's ready for review.
     - `bugfix` branches: Similar to feature branches, create branches for bug fixes from `dev`. Use branch names like `bugfix/login-issue`.
 
