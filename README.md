@@ -12,7 +12,7 @@ For development, you will need Node.js and a package manager, npm, installed on 
 
 We will need to install `nvm`, which is a Node Version Manager. It allows you to have different Node versions and switch between them easily. It also automatically installs npm for you, too.
 
-- [Windows (WSL)](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Windows (WSL)](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
 - [Mac/Linux](https://github.com/nvm-sh/nvm)
 
 Make sure you verify Node and npm are correctly installed on your system with the following commands:
