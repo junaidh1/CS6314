@@ -1,0 +1,81 @@
+.aqua-text {
+    color:#5f3f12;
+    background:#b4efe8;
+    
+}
+
+.head {
+    
+    font-size: 20px;
+}
+img {
+    width: 20%;
+}
+footer {
+    background-color:#deb4b7;
+    color:#5f3f12;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    
+}
+.lower{
+    background-color:#deb4b7;
+    color:#5f3f12;
+    padding-top: 30px;
+   
+}
+#pic{
+    margin-top: -100px;
+}
+a{
+    color:#5f3f12;
+    
+}
+.card-body{
+    margin-top: -20px;
+    
+}
+.btn-lg {
+    border-color: #deb4b7;
+    background-color: #b4efe8;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.img-fluid{
+    
+    min-width: 60%;
+}
+.copy{
+    margin-left: 10%;
+    word-wrap: break-word;
+    font-size: 12px;
+    font-weight: 300;
+}
+.col-sm-4 {
+    font-size: 150%;
+    margin-top: 100px; 
+    
+   
+}
+#inputEmail {
+    align-items: center;
+   
+}
+.card{
+    
+    border: none;
+}
+
+.card-img-top{
+    padding: 20px;
+    height: 50vh;
+    object-fit: cover;
+}
+
+
+/* .bg-img {
+    background-image: url("BakeryLogo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+} */

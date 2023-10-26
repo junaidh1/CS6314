@@ -397,5 +397,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
+# Apple iOS files
+.DS_Store
+
 # Environment variable file
 .env
