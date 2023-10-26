@@ -1,4 +1,4 @@
-# CS6314
+# Sweet Bee Cakes (CS 6314)
 Web Programming Languages FullStack Project
 
 To view more project details and meeting notes, please visit the [Wiki](https://github.com/junaidh1/CS6314/wiki).
