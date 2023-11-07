@@ -1,11 +1,23 @@
+
 .aqua-text {
-    color:#5f3f12;
+   
     background:#b4efe8;
     
 }
-
-.head {
+.navbar-nav .nav-item .nav-link {
+    color: #5f3f12 !important;
+    padding-left: 20px;
     
+    
+    
+    
+}
+.modal-content{
+    color: #5f3f12;
+    background: #deb4b7;
+}
+.head {
+   
     font-size: 20px;
 }
 img {
@@ -16,6 +28,7 @@ footer {
     color:#5f3f12;
     padding-top: 10px;
     padding-bottom: 20px;
+    margin-right: -15px;
     
 }
 .lower{
@@ -40,6 +53,7 @@ a{
     background-color: #b4efe8;
     padding-left: 70px;
     padding-right: 70px;
+    
 }
 .img-fluid{
     
@@ -54,9 +68,9 @@ a{
 .col-sm-4 {
     font-size: 150%;
     margin-top: 100px; 
-    
+    text-align: center;
    
-}
+} 
 #inputEmail {
     align-items: center;
    
@@ -73,9 +87,3 @@ a{
 }
 
 
-/* .bg-img {
-    background-image: url("BakeryLogo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-} */
