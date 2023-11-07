@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # Apple iOS files
 .DS_Store
+
+# Environment variable file
+.env
