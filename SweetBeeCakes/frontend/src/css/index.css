@@ -7,10 +7,7 @@
 .navbar-nav .nav-item .nav-link {
     color: #5f3f12 !important;
     padding-left: 20px;
-    
-    
-    
-    
+        
 }
 .modal-content{
     color: #5f3f12;
@@ -19,10 +16,12 @@
 .head {
    
     font-size: 20px;
+    
 }
 img {
     width: 20%;
 }
+
 footer {
     background-color:#deb4b7;
     color:#5f3f12;
