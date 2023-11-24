@@ -1,8 +1,8 @@
 # Sweet Bee Cakes (CS 6314)
+
 Web Programming Languages FullStack Project
 
 To view more project details and meeting notes, please visit the [Wiki](https://github.com/junaidh1/CS6314/wiki).
-
 
 ## Requirements
 
@@ -12,8 +12,8 @@ For development, you will need Node.js and a package manager, npm, installed on 
 
 We will need to install `nvm`, which is a Node Version Manager. It allows you to have different Node versions and switch between them easily. It also automatically installs npm for you, too.
 
-- [Windows (WSL)](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
-- [Mac/Linux](https://github.com/nvm-sh/nvm)
+-   [Windows (WSL)](https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl)
+-   [Mac/Linux](https://github.com/nvm-sh/nvm)
 
 Make sure you verify Node and npm are correctly installed on your system with the following commands:
 
@@ -22,48 +22,42 @@ node --version
 npm --version
 ```
 
-*If you are on Windows and don't have WSL installed, I would recommend doing that, since it will give you a Linux-flavor (ex: Ubuntu) development environment, and it will make developing and collaborating on the project easier (i.e. everyone will use the same terminal commands to setup/run the project). Here are instructions on how to install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install).*
-
+_If you are on Windows and don't have WSL installed, I would recommend doing that, since it will give you a Linux-flavor (ex: Ubuntu) development environment, and it will make developing and collaborating on the project easier (i.e. everyone will use the same terminal commands to setup/run the project). Here are instructions on how to install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install)._
 
 ## Project Setup
 
-After cloning this project to your filesystem, you need to install the pre-existing dependencies located in the `package.json` files. There are a total of 3 of them: `project folder, frontend folder, and backend folder`. Project folder packages apply to the entire project (*any packages frontend and backend will use*), while frontend and backend have their own package files, so that we don't mix the dependencies between each other.
-
-To install a single `package.json` file's packages, make sure you are in the folder it is located in, and type:
-
-`npm install`
-
+After cloning this project to your filesystem, run `npm install`.
 
 ## Project Structure
 
-The project is split into two main folders: `frontend` and `backend`. Here's an explanation of each folder:
+All code is listed in the `src/` folder. Here's an explanation of each folder does inside the `src/` folder:
 
-- `frontend/`
-    - `public/`: This directory holds static assets like HTML files, images, and fonts. The entry point, usually `index.html`, resides here.
-    - `src/`: This directory contains the main source code for your frontend application (CSS and JS files).
-- `backend/`
-    - `config/`: This directory holds configuration files for your backend, such as database connection settings, environment variables, and middleware configurations.
-        - Store environment-specific configurations (e.g., database credentials, API keys) in a .env file and use the `dotenv` package to load them into your application.
-    - `controllers/`: Each route or resource in your application can have its own controller file. These files contain the logic for handling requests, processing data, and generating responses.
-    - `models/`: This directory contains the database models or schemas for your application. Each model represents a specific data structure and handles interactions with the database.
-    - `routes/`: The API routes for your application reside in this directory. Each route file is responsible for defining the endpoints, mapping them to the appropriate controller functions, and handling request validation and authentication.
-    - `server.js`: This file acts as the entry point for your backend application. It sets up the Express server, establishes database connections, and defines middleware configurations.
-
+-   `config/`: This directory holds configuration files for your backend, such as database connection settings, environment variables, and middleware configurations.
+    -   Store environment-specific configurations (e.g., database credentials, API keys) in a .env file and use the `dotenv` package to load them into your application.
+-   `controllers/`: Each route or resource in your application can have its own controller file. These files contain the logic for handling requests, processing data, and generating responses (in other words, the implementation of routes go here, to abstract the logic from the `routes/` files).
+-   `public/`: This directory holds static assets like images and icons.
+-   `routes/`: The client-side and server-side (API) routes for your application reside in this directory. Each route file is responsible for defining the endpoints, mapping them to the appropriate controller functions, and handling request validation and authentication.
+-   `views/`: This is where the frontend will reside, using EJS for the template engine.
+-   `app.js`: This file is the entry point to our application. It sets up the Express server, establishes database connections, defines middleware configurations, sets up the routes, and launches the application.
 
 ## Branching Method
 
 We will adopt a simiplistic branching method to allow some organization, while not restricting development time.
 
-- `main` branch: This branch is the stable production-ready branch. It should always contain working code that can be deployed.
-- `dev` branch: This branch serves as the integration branch for ongoing development. Features and bug fixes are merged into this branch. **Majority of code development will be coming from this branch**.
-    - `feat` branches: For each feature or task, create a feature branch from `dev`. The branch name should be descriptive, like `feat/user-signup` or `feat/cart-functionality`. Develop the feature in this branch and submit a pull request (PR) back to the `dev` branch when it's ready for review.
-    - `bugfix` branches: Similar to feature branches, create branches for bug fixes from `dev`. Use branch names like `bugfix/login-issue`.
-
+-   `main` branch: This branch is the stable production-ready branch. It should always contain working code that can be deployed.
+    -   **YOU SHOULD NEVER COMMIT/PUSH CHANGES TO THE MAIN BRANCH. THE ONLY WAY THIS BRANCH GETS UPDATED IS THROUGH PULL REQUESTS, AS THIS IS THE STABLE, WORKING VERSION OF THE OUR PROJECT. UNTIL OUR APPLICATION IS FULLY FUNCTIONAL, CHANGES WILL NOT BE MADE TO THE MAIN BRANCH.**
+    -   There is a pre-commit hook installed in the repo that prevents you from locally committing changes to the `main` branch.
+-   `dev` branch: This branch serves as the integration branch for ongoing development. Features and bug fixes are merged into this branch. **MAJORITY OF CODE DEVELOPMENT WILL BE COMING FROM THIS BRANCH**.
+    -   `feat` branches: For each feature or task, create a feature branch from `dev`. The branch name should be descriptive, like `feat/frontend/auth` or `feat/backend/cart`. Develop the feature in this branch and submit a pull request (PR) back to the `dev` branch when it's ready for review.
+        -   To create a new branch from `dev`, make sure you are in the `dev` branch. If you are not, use the following command: `git checkout dev`
+        -   Once you are in the `dev` branch, create a new branch from it, using the following command: `git checkout -b <branch_name>`.
+    -   By using `feat` branches, it helps ensure we don't have overlapping commit changes, as everyone will work on different aspects of the project. Even if there are merge conflicts, there are much easier to handle when incoming from 2 seperate branches than dealing merge conflicts in a single branch.
 
 ## Run The Project
 
-Make sure you are in the project folder.
+-   **Development**: `npm run dev`
+-   **Deployment**: `npm start`
 
-- To run the frontend code only: `npm run client`
-- To run the backend code only: `npm run server`
-- To run both: `npm start`
+## Additional Notes
+
+-   Make it a habit to `git pull` everytime you work on the project. This helps bring in new changes constantly to your local repo, and ensures you are not working on something someone else has already implemented.
