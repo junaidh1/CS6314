@@ -1,0 +1,44 @@
+{
+    "name": "sweetbeecakes",
+    "version": "1.0.0",
+    "description": "Web Programming Languages FullStack Project",
+    "main": "src/app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon -e css,ejs,env,js,json src/app.js",
+        "precommit": "bash pre-commit.sh"
+    },
+    "pre-commit": [
+        "precommit"
+    ],
+    "contributors": [
+        {
+            "name": "Junaid"
+        },
+        {
+            "name": "Maryam"
+        },
+        {
+            "name": "Sanjeev"
+        },
+        {
+            "name": "Sreeman"
+        }
+    ],
+    "license": "UNLICENSED",
+    "dependencies": {
+        "bcrypt": "^5.1.1",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "express-session": "^1.17.3",
+        "mongodb": "^6.3.0",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0"
+    },
+    "devDependencies": {
+        "dotenv": "^16.3.1",
+        "nodemon": "^3.0.1",
+        "pre-commit": "^1.2.2"
+    }
+}
