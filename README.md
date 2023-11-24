@@ -26,7 +26,9 @@ _If you are on Windows and don't have WSL installed, I would recommend doing tha
 
 ## Project Setup
 
-After cloning this project to your filesystem, run `npm install`.
+1. Clone this repo to your system.
+2. `cd CS6314`.
+3. `npm install`.
 
 ## Project Structure
 
@@ -34,11 +36,12 @@ All code is listed in the `src/` folder. Here's an explanation of each folder do
 
 -   `config/`: This directory holds configuration files for your backend, such as database connection settings, environment variables, and middleware configurations.
     -   Store environment-specific configurations (e.g., database credentials, API keys) in a .env file and use the `dotenv` package to load them into your application.
--   `controllers/`: Each route or resource in your application can have its own controller file. These files contain the logic for handling requests, processing data, and generating responses (in other words, the implementation of routes go here, to abstract the logic from the `routes/` files).
--   `public/`: This directory holds static assets like images and icons.
+-   `controllers/`: Each route or resource in your application can have its own controller file. These files contain the logic for handling requests, processing data, and generating responses (*in other words, the implementation of routes go here, to abstract the logic from the `routes/` files*).
+-   `public/`: This directory holds static assets like images, icons, scripts, and stylesheets.
 -   `routes/`: The client-side and server-side (API) routes for your application reside in this directory. Each route file is responsible for defining the endpoints, mapping them to the appropriate controller functions, and handling request validation and authentication.
 -   `views/`: This is where the frontend will reside, using EJS for the template engine.
 -   `app.js`: This file is the entry point to our application. It sets up the Express server, establishes database connections, defines middleware configurations, sets up the routes, and launches the application.
+-   `util.js`: Helper functions.
 
 ## Branching Method
 
