@@ -56,9 +56,10 @@ app.use((err, req, res, next) => {
 /**
  * -------------- START APP ----------------
  */
-app.listen(process.env.PORT || 3000, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
     console.log(
-        `Server started on port ${process.env.PORT}. Please visit http://localhost:${process.env.PORT} to see your app.`
+        `Server started on port ${process.env.PORT}. Please visit http://localhost:${PORT} to see your app.`
     );
     console.log("Press Ctrl + C to stop.");
 });
