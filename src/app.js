@@ -1,18 +1,18 @@
 /**
  * -------------- IMPORTS / CONFIGS ----------------
  */
-import "./config/env.js";
-import "./config/passport.js";
+import './config/env.js';
+import './config/passport.js';
 
-import express from "express";
-import session from "express-session";
-import passport from "passport";
-import path from "path";
+import express from 'express';
+import session from 'express-session';
+import passport from 'passport';
+import path from 'path';
 
-import authRoutes from "./routes/api/auth.js";
-import cartRoutes from "./routes/api/cart.js";
-import productsRoutes from "./routes/api/products.js";
-import clientRoutes from "./routes/client.js";
+import authRoutes from './routes/api/auth.js';
+import cartRoutes from './routes/api/cart.js';
+import productsRoutes from './routes/api/products.js';
+import clientRoutes from './routes/client.js';
 
 const app = express();
 app.set("view engine", "ejs");
@@ -56,7 +56,7 @@ app.use((err, req, res, next) => {
 /**
  * -------------- START APP ----------------
  */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(
         `Server started on port ${process.env.PORT}. Please visit http://localhost:${PORT} to see your app.`
