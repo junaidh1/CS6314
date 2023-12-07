@@ -1,4 +1,7 @@
-import { MongoClient, ServerApiVersion } from "mongodb";
+import {
+    MongoClient,
+    ServerApiVersion,
+} from 'mongodb';
 
 const uri = process.env.MONGODB_URI || "";
 
@@ -23,7 +26,7 @@ try {
     console.error(e);
 }
 
-let db = client.db(process.env.DB_NAME || "sweetbeecakes");
+let db = client.db(process.env.DB_NAME);
 
 export default db;
 export { client };
