@@ -1,15 +1,18 @@
-import express from "express";
+import express from 'express';
 
 import {
     createProduct,
     deleteProduct,
+    getProduct,
     getProducts,
     updateProduct,
-} from "../../controllers/api/products.js";
+} from '../../controllers/api/products.js';
 
 const router = express.Router();
 
 router.get("/", getProducts);
+
+router.get("/:id", getProduct);
 
 router.post("/", createProduct); // Admin route
 
