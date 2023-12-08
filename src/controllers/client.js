@@ -12,9 +12,13 @@ const getHomePage = (req, res) => {
     res.render("index");
 };
 
-const getSignInPage = (req, res) => {};
+const getSignInPage = (req, res) => {
+    res.render("signin")
+};
 
-const getSignUpPage = (req, res) => {};
+const getSignUpPage = (req, res) => {
+    res.render("signup")
+};
 
 const getSearchPage = (req, res) => {};
 
@@ -22,7 +26,9 @@ const getItemPage = (req, res) => {};
 
 const getInventoryPage = (req, res) => {};
 
-const getCartPage = (req, res) => {};
+const getCartPage = (req, res) => {
+    res.render("cart")
+};
 
 const getCheckOutPage = (req, res) => {};
 
