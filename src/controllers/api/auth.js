@@ -31,6 +31,12 @@ const signUp = async (req, res) => {
     await db.collection("users").insertOne({
         username,
         password: hashedPassword,
+        isAdmin: false,
+    });
+
+    await db.collection("carts").insertOne({
+        username,
+        cart: [],
     });
 
     res.status(201).send("Registration successful.");
