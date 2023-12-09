@@ -69,3 +69,7 @@ a {
     height: 50vh;
     object-fit: cover;
 }
+
+.mt-4 {
+    padding-top: 100px;
+}

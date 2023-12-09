@@ -7,6 +7,7 @@
     "scripts": {
         "start": "node src/app.js",
         "dev": "nodemon -e css,ejs,env,js,json src/app.js",
+        "devStart": "nodemon -e css,ejs,env,js,json src/app.js",
         "precommit": "bash pre-commit.sh"
     },
     "pre-commit": [
@@ -38,7 +39,7 @@
     },
     "devDependencies": {
         "dotenv": "^16.3.1",
-        "nodemon": "^3.0.1",
+        "nodemon": "^3.0.2",
         "pre-commit": "^1.2.2"
     }
 }
