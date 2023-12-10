@@ -56,7 +56,9 @@ const getSignUpPage = (req, res) => {
     res.render("signup")
 };
 
-const getSearchPage = (req, res) => {};
+const getSearchPage = (req, res) => {
+    res.status(200).json({msg: "Reached Search Path"});
+};
 
 const getItemPage = (req, res) => {};
 
