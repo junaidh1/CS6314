@@ -31,7 +31,7 @@ const getProducts = async (req, res) => {
 // };
 const getProduct = async (req, res) => {
     try {
-      // Log the productId to ensure it is correct
+    
       console.log('Backend Received Product ID:', req.params.id);
   
         const product = await db.collection('products').findOne({ id: req.params.id});

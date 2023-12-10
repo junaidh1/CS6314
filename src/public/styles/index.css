@@ -90,8 +90,9 @@ a {
 }
 
 .mt-4 {
-    padding-top: 100px;
+    padding-top: 120px;
     color: #5f3f12 !important;
+    padding-bottom: 100px;
 }
 #detail{
     color: #5f3f12 !important;
@@ -103,6 +104,9 @@ a {
     padding: 10px; /* Add padding for better visual appearance */
     display: inline-block; /* Ensure the input doesn't take the full width */
     margin-right: 10px; /* Add some space to the right of the input */
+  }
+  .mt-5{
+    padding-top: 100px;
   }
   
   
