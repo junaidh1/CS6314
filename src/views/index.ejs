@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -31,8 +31,11 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="cakesDropdown">
                 <% types.forEach(type => { %>
-                  <a class="dropdown-item" href="#"><%= type %></a>
+                  <a class="dropdown-item" href="#" onclick="selectType('<%= type %>')"><%= type %></a>
                 <% }); %>
+                <form id="productForm" action="/search" method="GET">
+                  <input type="hidden" name="filter" id="prodNameInput">
+                </form>
               </div>
             </li>
             <li class="nav-item">
@@ -50,7 +53,7 @@
           </li>
           <div id="searchFormContainer" style="display: none;">
             <form action="/search" method="GET" id="searchForm">
-              <input type="text" name="prod_name" placeholder="Search...">
+              <input type="text" name="search" placeholder="Search...">
               <button type="submit">Search</button>
             </form>
           </div>
@@ -60,12 +63,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/cart"><i class="bi bi-bag cart"></i></a>
           </li>
-          <% if (user) { %>
-            <li class="nav-item" id="logout">
-              <a class="nav-link"onclick="logout()" ><i class="bi bi-box-arrow-right"></i></a>
-            </li>          
-          <% } %>
-
           </ul>
         </div>
       </div>
