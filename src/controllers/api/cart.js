@@ -1,4 +1,4 @@
-import db from '../../config/db.js';
+import db from "../../config/db.js";
 
 const getCart = async (req, res) => {
     try {
@@ -15,7 +15,7 @@ const getCart = async (req, res) => {
 
 const addToCart = async (req, res) => {
     try {
-        const product_id = parseInt(req.params.id, 10);
+        const product_id = req.params.id;
         const username = req.user.username;
 
         // Check if product exists in database
@@ -73,7 +73,7 @@ const addToCart = async (req, res) => {
 
 const removeFromCart = async (req, res) => {
     try {
-        const product_id = parseInt(req.params.id, 10);
+        const product_id = req.params.id;
         const username = req.user.username;
 
         // Check if item exists in database
