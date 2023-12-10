@@ -2,34 +2,33 @@ import db from "../../config/db.js";
 
 
 const getProducts = async (req, res) => {
-    try {
-        const {search, filter} = req.query;
-        let productsQuery = {};
-        let types = [];
-        const allProducts = await db.collection("products").find({}).toArray();
-        types = [...new Set(allProducts.map(product => product.type))];
-        // const products = await db.collection("products").find({}).toArray();
+  try {
+      const { search, filter } = req.query;
+      let productsQuery = {};
+      let products = await db.collection("products").find().toArray();
+      let types = [...new Set(products.map(product => product.type))];
 
-        if (search) {
-            productsQuery.name = { $regex: new RegExp(search, 'i') };
-        }
-        if (filter) {
-            productsQuery.type = filter;
-        }
-        
-        const products = Object.keys(productsQuery).length > 0 ?
-            allProducts.filter(product =>
-                Object.keys(productsQuery).every(key =>
-                    product[key] === productsQuery[key]
-                )
-            ) : allProducts;
-        
-        res.status(200).json({ products, types });
-    } catch (error) {
+      if (search) {
+          productsQuery = {
+              $or: [
+                  { name: { $regex: new RegExp(search, "i") } },
+                  { description: { $regex: new RegExp(search, "i") } }
+              ]
+          };
+      } else if (filter) {
+          productsQuery = { type: { $regex: new RegExp(filter, "i") } };
+      }
+
+      if (search || filter) {
+          products = await db.collection("products").find(productsQuery).toArray();
+      }
+
+      res.status(200).json({ products, types });
+  } catch (error) {
       console.error("Error fetching products:", error);
       res.status(500).json({ error: "Internal Server Error" });
-    }
-  };
+  }
+};
 
 const getProduct = async (req, res) => {
     try {
