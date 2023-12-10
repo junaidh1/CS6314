@@ -54,7 +54,24 @@ const getSignUpPage = (req, res) => {
 
 const getSearchPage = (req, res) => {};
 
-const getItemPage = (req, res) => {};
+const getItemPage = async (req, res) => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/products/${req.params.id}`);
+    
+            if (!response.ok) {
+                console.log("Error fetching product");
+                throw new Error("Failed to fetch product");
+            }
+    
+            const { product, types } = await response.json();
+            res.render('product', { product, types });
+        } catch (error) {
+            console.error('Error fetching product details:', error);
+            res.status(500).send('Internal Server Error');
+        }
+    };
+    
+
 
 const getInventoryPage = (req, res) => {};
 
