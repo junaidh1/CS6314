@@ -40,3 +40,35 @@ function showAboutInfo() {
         searchIcon.addEventListener("click", searchProducts);
       }
     });
+
+    function logout(){
+      var xhr = new XMLHttpRequest();
+
+      // Configure it: POST-request for the URL /example
+      xhr.open('POST', '/signout', true);
+      
+      // Set the Content-Type header if you are sending data in the request body
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      
+      // Setup a callback function to handle the response
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // Request was successful, handle the response data
+          console.log("request was good")
+          document.getElementById("logout").hidden=true
+          console.log(xhr.responseText);
+        } else {
+          // Request failed
+          console.error('Request failed with status:', xhr.status);
+        }
+      };
+      
+      // Setup a callback function to handle network errors
+      xhr.onerror = function () {
+        console.error('Network request failed');
+      };
+      
+      // Send the request with an empty body
+      xhr.send();
+
+    }
