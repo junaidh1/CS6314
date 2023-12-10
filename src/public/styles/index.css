@@ -1,3 +1,22 @@
+body {
+    font-size: 18px; /* Adjust the base font size */
+    font-weight: 400; /* Adjust the base font weight */
+  }
+  
+  h1 {
+    font-size: 2em; /* Adjust the font size for h1 */
+    font-weight: 700; /* Adjust the font weight for h1 */
+  }
+  
+  h2 {
+    font-size: 1.5em; /* Adjust the font size for h2 */
+    font-weight: 600; /* Adjust the font weight for h2 */
+  }
+  
+  p {
+    font-size: 16px; /* Adjust the font size for paragraphs */
+    font-weight: 400; /* Adjust the font weight for paragraphs */
+  }
 .aqua-text {
     background: #b4efe8;
 }
@@ -72,4 +91,19 @@ a {
 
 .mt-4 {
     padding-top: 100px;
+    color: #5f3f12 !important;
 }
+#detail{
+    color: #5f3f12 !important;
+}
+
+#quantity {
+    width: 50px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    padding: 10px; /* Add padding for better visual appearance */
+    display: inline-block; /* Ensure the input doesn't take the full width */
+    margin-right: 10px; /* Add some space to the right of the input */
+  }
+  
+  
+  
