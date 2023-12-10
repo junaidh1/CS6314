@@ -1,4 +1,4 @@
-import db from '../../config/db.js';
+import db from "../../config/db.js";
 
 // const getProducts = async (req, res) => {
 //     const products = await db.collection("products").find({});
@@ -10,13 +10,13 @@ import db from '../../config/db.js';
 const getProducts = async (req, res) => {
     try {
         const products = await db.collection("products").find({}).toArray();
-        const types = [...new Set(products.map(product => product.type))];
+        const types = [...new Set(products.map((product) => product.type))];
         res.status(200).json({ products, types });
     } catch (error) {
-      console.error("Error fetching products:", error);
-      res.status(500).json({ error: "Internal Server Error" });
+        console.error("Error fetching products:", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-  };
+};
 
 const getProduct = async (req, res) => {
     try {
