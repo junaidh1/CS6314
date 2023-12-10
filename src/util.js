@@ -20,8 +20,7 @@ const isNotAuth = (req, res, next) => {
 };
 
 const isAdmin = (req, res, next) => {
-    if (req.isAuthenticated() && req.user.role === "admin") {
-        // NOTE: req.user.role depends on how the User model is defined in the database. ".role" is just an placeholder.
+    if (req.isAuthenticated() && req.user.isAdmin === true) {
         next();
     } else {
         res.status(401).send("<h1>Unauthorized 401: You are not an admin.<h1>");
