@@ -8,11 +8,8 @@ const getHomePage = async (req, res) => {
             throw new Error("Failed to fetch products");
         }
         const { products, types } = await response.json();
-        // Check user authentication status here...
-        // For now, assuming user is not authenticated
-        //   const isAuthenticated = false;
 
-        res.render("index", { products, types });
+        res.render("index", { products, types, user: req.user });
     } catch (error) {
         console.error("Error fetching products:", error);
         // res.render("index", { products: [], types: [], isAuthenticated: false });
