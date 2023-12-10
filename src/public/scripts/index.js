@@ -72,3 +72,9 @@ function showAboutInfo() {
       xhr.send();
 
     }
+
+    function selectType(selectedType) {
+      document.getElementById('prodNameInput').value = selectedType;
+  
+      document.getElementById('productForm').submit();
+    };
