@@ -10,7 +10,8 @@ const signIn = (req, res, next) => {
 
         req.logIn(user, (err) => {
             if (err) return next(err);
-            return res.status(200).send("Login successful.");
+            //return res.status(200).send("Login successful.");
+            return res.status(200).redirect("http://localhost:3000/")
         });
     })(req, res, next);
 };
@@ -39,7 +40,8 @@ const signUp = async (req, res) => {
         cart: [],
     });
 
-    res.status(201).send("Registration successful.");
+   //res.status(201).send("Registration successful.");
+   res.status(201).redirect("http://localhost:3000/signin")
 };
 
 export { signIn, signUp };

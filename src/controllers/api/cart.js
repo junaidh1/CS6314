@@ -150,7 +150,8 @@ const checkout = async (req, res) => {
             .collection("carts")
             .updateOne({ username }, { $set: { cart: [] } });
 
-        res.json({ message: `Checkout successful for ${username}'s cart.` });
+        //res.json({ message: `Checkout successful for ${username}'s cart.` });
+        res.redirect("http://localhost:3000/")
     } catch (error) {
         // Handle any errors that occur during the database operation
         console.error("Error checking out:", error);
