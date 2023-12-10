@@ -61,9 +61,10 @@ const addToCart = async (req, res) => {
             );
         }
 
-        res.json({
-            message: `Product ${product_id} added to ${username}'s cart.`,
-        });
+        // res.json({
+        //     message: `Product ${product_id} added to ${username}'s cart.`,
+        // });
+        res.redirect("http://localhost:3000/")
     } catch (error) {
         // Handle any errors that occur during the database operation
         console.error("Error adding product to cart:", error);
