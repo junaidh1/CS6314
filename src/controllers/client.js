@@ -1,27 +1,3 @@
-// import bcrypt from "bcrypt";
-// import passport from "passport";
-
-// import getProducts from "../controllers/api/products.js";
-
-// import db from "../config/db.js";
-
-// const getHomePage = (req, res) => {
-//     /** await.fetch("http://localhost:3000/api/products")
-//         .then((res) => res.json())
-//         .then((data) => {
-//             console.log(data);
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//         });
-//     **/
-//     /**
-//      * TODO: if user is authenticated, render the home page with username on navbar and ability to add products to cart
-//      * TODO: if user is not authenticated, render the home page with option to sign in or sign up, and no ability to add products to cart
-//      */
-
-//     res.render("index");
-// };
 import fetch from 'node-fetch';
 
 
@@ -76,7 +52,6 @@ const getItemPage = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
-
 
 const getInventoryPage = (req, res) => {};
 
