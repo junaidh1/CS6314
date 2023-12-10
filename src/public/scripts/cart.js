@@ -21,6 +21,7 @@ function createTable() {
             // Step 2: Make a GET request for each product ID to get more information
             var i = 1;
             var sum = 0;
+            addTableHeader()
             productIds.cart.forEach((prodId) => {
                 const productInfoUrl = `/api/products/${prodId.product_id}`;
 
@@ -127,5 +128,53 @@ function deleteGame(id) {
         },
     });
 }
+
+function addTableHeader() {
+    // Get the table element
+    var table = document.getElementById('cart-table');
+
+    // Create a thead element
+    var thead = document.createElement('thead');
+
+    // Create a header row
+    var headerRow = document.createElement('tr');
+
+    // Add header cells with content
+    var headerCell1 = document.createElement('th');
+    headerCell1.textContent = '#';
+
+    var headerCell2 = document.createElement('th');
+    headerCell2.textContent = 'Product';
+
+    var headerCell3 = document.createElement('th');
+    headerCell3.textContent = 'Quantity';
+
+    
+    var headerCell4 = document.createElement('th');
+    headerCell4.textContent = 'Total';
+
+        
+    var headerCell5 = document.createElement('th');
+    headerCell5.textContent = 'Product Number';
+
+    var headerCell6 = document.createElement('th');
+    headerCell6.textContent = 'Remove';
+
+    // Append header cells to the header row
+    headerRow.appendChild(headerCell1);
+    headerRow.appendChild(headerCell2);
+    headerRow.appendChild(headerCell3);
+    headerRow.appendChild(headerCell4);
+    headerRow.appendChild(headerCell5);
+    headerRow.appendChild(headerCell6);
+
+    // Append the header row to the thead element
+    thead.appendChild(headerRow);
+
+    // Append the thead element to the table
+    table.appendChild(thead);
+  }
+
+
 
 console.log("reading from external file");
