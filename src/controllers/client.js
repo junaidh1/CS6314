@@ -1,5 +1,4 @@
-import fetch from 'node-fetch';
-
+import fetch from "node-fetch";
 
 const getHomePage = async (req, res) => {
     try {
@@ -12,33 +11,32 @@ const getHomePage = async (req, res) => {
         // Check user authentication status here...
         // For now, assuming user is not authenticated
         //   const isAuthenticated = false;
-  
+
         res.render("index", { products, types });
     } catch (error) {
-            console.error("Error fetching products:", error);
-            // res.render("index", { products: [], types: [], isAuthenticated: false });
-            res.render("index", { products: [], types: [] });
+        console.error("Error fetching products:", error);
+        // res.render("index", { products: [], types: [], isAuthenticated: false });
+        res.render("index", { products: [], types: [] });
     }
-  };
+};
 
 const getSignInPage = (req, res) => {
-
-        res.render("signin")
-
-    
+    res.render("signin");
 };
 
 const getSignUpPage = (req, res) => {
-    res.render("signup")
+    res.render("signup");
 };
 
 const getSearchPage = (req, res) => {
-    res.status(200).json({msg: "Reached Search Path"});
+    res.status(200).json({ msg: "Reached Search Path" });
 };
 
 const getItemPage = async (req, res) => {
     try {
-        const response = await fetch(`http://localhost:3000/api/products/${req.params.id}`);
+        const response = await fetch(
+            `http://localhost:3000/api/products/${req.params.id}`
+        );
 
         if (!response.ok) {
             console.log("Error fetching product");
@@ -46,24 +44,29 @@ const getItemPage = async (req, res) => {
         }
 
         const { product, types } = await response.json();
-        res.render('product', { product, types });
+        res.render("product", { product, types });
     } catch (error) {
-        console.error('Error fetching product details:', error);
-        res.status(500).send('Internal Server Error');
+        console.error("Error fetching product details:", error);
+        res.status(500).send("Internal Server Error");
     }
 };
 
 const getInventoryPage = (req, res) => {};
 
 const getCartPage = (req, res) => {
-    res.render("cart")
+    res.render("cart");
 };
 
 const getCheckOutPage = (req, res) => {
-    res.render("credit")
+    res.render("credit");
 };
 
-const signOut = (req, res) => {};
+const signOut = (req, res) => {
+    req.logout((err) => {
+        if (err) return next(err);
+        res.status(200).redirect("/");
+    });
+};
 
 export {
     getCartPage,
