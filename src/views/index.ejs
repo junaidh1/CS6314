@@ -47,24 +47,32 @@
           </ul>
         </div>
         <div class="navbar-nav ml-auto text-center d-flex flex-row">
+          <ul class="navbar-nav">
+            <% if(user && user.isAdmin) { %>
+              <li class="nav-item">
+                <button class="nav-link btn btn-link" onclick="location.href='/inventory'">Inventory</button>
+              </li>
+            <% } %>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="searchIcon"><i class="bi bi-search"></i></a>
+            </li>
           </ul>
-          <li class="nav-item">
-            <a class="nav-link" href="#" id="searchIcon"><i class="bi bi-search"></i></a>
-          </li>
           <div id="searchFormContainer" style="display: none;">
             <form action="/search" method="GET" id="searchForm">
               <input type="text" name="search" placeholder="Search...">
               <button type="submit">Search</button>
             </form>
           </div>
-          <li class="nav-item">
-            <a class="nav-link" href="/signin"><i class="bi bi-person login"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cart"><i class="bi bi-bag cart"></i></a>
-          </li>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/signin"><i class="bi bi-person login"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cart"><i class="bi bi-bag cart"></i></a>
+            </li>
           </ul>
         </div>
+        
       </div>
     </nav>
     <div class="modal fade " id="specialModal" tabindex="-1" role="dialog" aria-labelledby="specialModalLabel" aria-hidden="true">

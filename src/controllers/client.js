@@ -72,7 +72,16 @@ const getItemPage = async (req, res) => {
     }
 };
 
-const getInventoryPage = (req, res) => {};
+const getInventoryPage = async (req, res) => {
+    const response = await fetch("http://localhost:3000/api/products");
+        if (!response.ok) {
+            console.log("Error fetching products");
+            throw new Error("Failed to fetch products");
+        }
+        const { products, types } = await response.json();
+
+        res.render("admin", { products, types, user: req.user });
+};
 
 const getCartPage = (req, res) => {
     res.render("cart");

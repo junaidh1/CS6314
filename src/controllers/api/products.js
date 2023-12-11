@@ -30,10 +30,7 @@ const getProducts = async (req, res) => {
 };
 
 const getProduct = async (req, res) => {
-    try {
-    
-      console.log('Backend Received Product ID:', req.params.id);
-  
+    try {  
         const product = await db.collection('products').findOne({ id: req.params.id});
         const products = await db.collection('products').find({}).toArray();
         const types = [...new Set(products.map(product => product.type))];
