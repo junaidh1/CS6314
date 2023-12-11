@@ -15,6 +15,7 @@ const getHomePage = async (req, res) => {
         // res.render("index", { products: [], types: [], isAuthenticated: false });
         res.render("index", { products: [], types: [] });
     }
+
 };
 
 const getSignInPage = (req, res) => {
@@ -25,8 +26,24 @@ const getSignUpPage = (req, res) => {
     res.render("signup");
 };
 
-const getSearchPage = (req, res) => {
-    res.status(200).json({ msg: "Reached Search Path" });
+const getSearchPage = async (req, res) => {
+    try {
+        const searchQuery = req.query;
+    
+        //const response = await fetch(`http://localhost:3000/api/products?search=${searchQuery}`);
+        const response = await fetch(`http://localhost:3000/api/products?search=${req.query}`);
+    
+        if (!response.ok) {
+            console.log(`Error fetching products for query "${searchQuery}"`);
+            throw new Error(`Failed to fetch products: ${response.status} ${response.statusText}`);
+        }
+    
+        const { products, types } = await response.json();
+        res.render('index', { products, types });
+    } catch (error) {
+        console.error('Error fetching search results:', error);
+        res.status(500).send('Internal Server Error');
+    }
 };
 
 const getItemPage = async (req, res) => {
