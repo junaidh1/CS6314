@@ -46,7 +46,7 @@ const getSearchPage = async (req, res) => {
                 );
             }
             const { products, types } = await response.json();
-            res.render("index", { products, types });
+            res.render("index", { products, types, user: req.user });
         } else {
             res.redirect("/");
         }
