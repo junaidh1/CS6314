@@ -28,18 +28,25 @@ const getSignUpPage = (req, res) => {
 
 const getSearchPage = async (req, res) => {
     try {
-        const searchQuery = req.query;
-    
-        //const response = await fetch(`http://localhost:3000/api/products?search=${searchQuery}`);
-        const response = await fetch(`http://localhost:3000/api/products?search=${req.query}`);
-    
-        if (!response.ok) {
-            console.log(`Error fetching products for query "${searchQuery}"`);
-            throw new Error(`Failed to fetch products: ${response.status} ${response.statusText}`);
+        const { search, filter } = req.query;
+        let backendUrl = 'http://localhost:3000/api/products';
+        if (search) {
+            backendUrl += `?search=${encodeURIComponent(search)}`;
+        } else if (filter) {
+            backendUrl += `?search=${encodeURIComponent(filter)}`;
         }
-    
-        const { products, types } = await response.json();
-        res.render('index', { products, types });
+        
+        if (search || filter) {
+            const response = await fetch(backendUrl);
+            if (!response.ok) {
+                console.log(`Error fetching products for query "${search || filter}"`);
+                throw new Error(`Failed to fetch products: ${response.status} ${response.statusText}`);
+            }
+            const { products, types } = await response.json();
+            res.render('index', { products, types });
+        } else {
+            res.redirect('/');
+        }
     } catch (error) {
         console.error('Error fetching search results:', error);
         res.status(500).send('Internal Server Error');

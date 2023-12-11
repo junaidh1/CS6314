@@ -22,7 +22,6 @@ const getProducts = async (req, res) => {
       if (search || filter) {
           products = await db.collection("products").find(productsQuery).toArray();
       }
-
       res.status(200).json({ products, types });
   } catch (error) {
       console.error("Error fetching products:", error);
