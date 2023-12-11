@@ -4,6 +4,8 @@ import {
     getCartPage,
     getCheckOutPage,
     getHomePage,
+    getInventoryAddPage,
+    getInventoryEditPage,
     getInventoryPage,
     getItemPage,
     getSearchPage,
@@ -30,6 +32,10 @@ router.get("/search", getSearchPage);
 router.get("/products/:id", getItemPage);
 
 router.get("/inventory", isAdmin, getInventoryPage); // Admin route
+
+router.get("/inventory/add", isAdmin, getInventoryAddPage); // Admin route
+
+router.get("/inventory/:id/edit", isAdmin, getInventoryEditPage); // Admin route
 
 router.get("/cart", isAuth, getCartPage); // User route
 
