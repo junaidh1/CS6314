@@ -109,5 +109,25 @@ a {
     padding-top: 100px;
   }
   
-  
+  .edit-btn {
+    background-color: #b4efe8;
+    color: #5f3f12;
+}
+
+.delete-btn {
+    background-color: #deb4b7;
+    color: #5f3f12;
+}
+.add-product-btn {
+    background-color: #b4efe8;
+    color: #5f3f12;
+    margin-left: 100px;
+}
+
+table {
+    margin-top: 150px;
+    margin-left: 100px;
+   
+}
+
   

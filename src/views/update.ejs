@@ -41,38 +41,48 @@
           <div class="navbar-nav ml-auto text-center d-flex flex-row">
         </div>
       </nav>
-      <section id="productSection">
-        <h1>Product Management</h1>
-        <table border="1">
-            <thead>
-              <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Loop through your products and generate rows -->
-              <% products.forEach(product => { %>
-                <tr>
-                  <td><%= product.id %></td>
-                  <td><%= product.name %></td>
-                  <td>
-                    <!-- Edit button -->
-                    <button class="edit-btn" onclick="editProduct('<%= product.id %>')">Edit</button>
-    
-                    <!-- Delete button -->
-                    <button class="delete-btn" onclick="deleteProduct('<%= product.id %>')">Delete</button>
-    
-                  </td>
-                </tr>
-              <% }); %>
-            </tbody>
-          </table>
-        
-          <!-- Button to add a new product -->
-          <button class="add-product-btn" onclick="addNewProduct()">Add New Product</button>
-    </section>
+      <section>
+        <body>
+
+            <h1>Edit Product</h1>
+            
+            <form action="/:id" method="post">
+                <!-- Product ID (hidden field) -->
+                <input type="hidden" name="id" value="1003">
+            
+                <!-- Product Name -->
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="name" value="Birthday Cake" required>
+            
+                <!-- Description -->
+                <label for="productDescription">Description:</label>
+                <textarea id="productDescription" name="description" rows="4" required>A scrumptious birthday cake perfect for celebrations.</textarea>
+            
+                <!-- Details -->
+                <label for="productDetails">Details:</label>
+                <textarea id="productDetails" name="details" rows="4" required>Moist layers with creamy frosting, guaranteed to make your day special…</textarea>
+            
+                <!-- Image -->
+                <label for="productImage">Image URL:</label>
+                <input type="text" id="productImage" name="image" value="images/cake-birthday.jpeg" required>
+            
+                <!-- Price -->
+                <label for="productPrice">Price:</label>
+                <input type="number" id="productPrice" name="price" value="29.99" step="0.01" required>
+            
+                <!-- Size -->
+                <label for="productSize">Size:</label>
+                <input type="text" id="productSize" name="size" value="9-inch" required>
+            
+                <!-- Type -->
+                <label for="productType">Type:</label>
+                <input type="text" id="productType" name="type" value="cake" required>
+            
+                <!-- Submit button -->
+                <button type="submit">Save Changes</button>
+            </form>
+            
+      </section>
       <section class=" row lower">
         <div class="col-sm-4">
           <a href="/"><img src="/icons/bakery-logo.png" class="img-fluid" id="pic" alt="logo"></a>
