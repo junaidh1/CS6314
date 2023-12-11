@@ -5,9 +5,7 @@ const isAuth = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
     } else {
-        res.status(401).send(
-            "<h1>Unauthorized 401: You are not logged in.<h1>"
-        );
+        res.redirect("/signin");
     }
 };
 
