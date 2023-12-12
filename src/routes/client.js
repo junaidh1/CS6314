@@ -35,7 +35,7 @@ router.get("/inventory", isAdmin, getInventoryPage); // Admin route
 
 router.get("/inventory/add", isAdmin, getInventoryAddPage); // Admin route
 
-router.get("/inventory/:id/edit", isAdmin, getInventoryEditPage); // Admin route
+router.get("/inventory/:id/update", isAdmin, getInventoryEditPage); // Admin route
 
 router.get("/cart", isAuth, getCartPage); // User route
 

@@ -96,7 +96,7 @@
             <h5><b>Size:</b>  <%= product.size %></h5>
             <h5><b>Price: $</b>  <%= product.price %></h5>
     
-            <form action="/api/cart/<%= product.id %>" method="post">
+            <form action="/api/cart/<%= product.id %>?quantity=<%= product.quantity %>" method="post">
               <input type="hidden" name="productId" value="<%= product.id %>">
           
               <label for="quantity">Quantity:</label>

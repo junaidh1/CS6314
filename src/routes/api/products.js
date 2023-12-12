@@ -1,5 +1,4 @@
 import {
-    createProduct,
     deleteProduct,
     getProduct,
     getProducts,
@@ -15,9 +14,9 @@ router.get("/", getProducts);
 
 router.get("/:id", getProduct);
 
-router.post("/", isAdmin, createProduct); // Admin route
+//router.post("/", isAdmin, createProduct); // Admin route
 
-router.put("/:id", isAdmin, updateProduct); // Admin route
+router.post("/:id", isAdmin, updateProduct); // Admin route
 
 router.delete("/:id", isAdmin, deleteProduct); // Admin route
 

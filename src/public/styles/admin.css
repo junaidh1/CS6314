@@ -1,0 +1,30 @@
+
+
+/* Style for the productSection */
+#productSection-container {
+    max-width: 800px; /* Set the maximum width for the productSection */
+    margin: 0 auto; /* Center the section on the page */
+  }
+  
+  /* Style for the table */
+  #productSection table {
+    width: 100%; /* Make the table take the full width of its container */
+    border-collapse: collapse; /* Collapse the borders between cells */
+  
+  }
+  
+  /* Style for the table cells */
+  #productSection table td, #productSection table th {
+    padding: 8px; /* Adjust the padding inside cells */
+    border: 1px solid #ddd; /* Add a border around cells */
+    width: 50%;
+  }
+  
+  /* Style for the add-product-btn */
+  .add-product-btn {
+    display: block;
+    width: 20%;
+    margin: 20px auto; /* Set top and bottom margin to 20px and center horizontally */
+}
+
+  

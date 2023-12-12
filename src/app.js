@@ -8,6 +8,7 @@ import express from 'express';
 import session from 'express-session';
 import passport from 'passport';
 import path from 'path';
+import bodyParser from 'body-parser'; 
 
 import authRoutes from './routes/api/auth.js';
 import cartRoutes from './routes/api/cart.js';
@@ -23,6 +24,7 @@ app.set("views", path.resolve("src", "views"));
  */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.resolve("src", "public")));
 app.use(
     session({

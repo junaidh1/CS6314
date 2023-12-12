@@ -49,10 +49,72 @@ const getProduct = async (req, res) => {
     }
 };
 
-const createProduct = async (req, res) => {};
 
-const updateProduct = async (req, res) => {};
+const updateProduct = async (req, res) => {
+  const updatedProductData = req.body;
+  const productId = req.body.id;
+  const price = parseFloat(req.body.price);
 
-const deleteProduct = async (req, res) => {};
+  try {
+    console.log('Searching for product with ID:', productId);
 
-export { createProduct, deleteProduct, getProduct, getProducts, updateProduct };
+    // Find the existing product by ID
+    const existingProduct = await db.collection("products").findOne({ id: productId });
+
+    console.log('existingProduct:', existingProduct);
+
+    if (existingProduct) {
+      // Update the existing product
+      await db.collection("products").updateOne(
+        { id: productId },
+        { $set: { ...updatedProductData, price: price } }
+      );
+    } else {
+      // Insert a new product
+      await db.collection("products").insertOne({
+        id: productId,
+        ...updatedProductData,
+        price: price
+      });
+    }
+
+    res.redirect("http://localhost:3000/");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
+
+
+const deleteProduct = async (req, res) => {
+    const productId = req.params.id;
+  
+    try {
+      // Find the existing product by ID
+      const existingProduct = await db.collection('products').findOne({ id: productId });
+  
+      if (!existingProduct) {
+        // Product not found
+        res.status(404).json({ message: 'Product not found' });
+        return;
+      }
+  
+      // Delete the product from the database
+      const result = await db.collection('products').deleteOne({ id: productId });
+  
+      if (result.deletedCount === 1) {
+        // Product deleted successfully
+        res.status(204).send();
+      } else {
+        // Deletion unsuccessful
+        res.status(500).json({ message: 'Failed to delete the product' });
+      }
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  };
+  
+  
+
+export { deleteProduct, getProduct, getProducts, updateProduct };

@@ -17,6 +17,7 @@ const addToCart = async (req, res) => {
     try {
         const product_id = req.params.id;
         const username = req.user.username;
+        const quantity = req.body.quantity || 1;
 
         // Check if product exists in database
         const product = await db
@@ -41,7 +42,7 @@ const addToCart = async (req, res) => {
                     $push: {
                         cart: {
                             product_id,
-                            quantity: 1,
+                            quantity: Number(quantity),
                         },
                     },
                 }
@@ -55,7 +56,7 @@ const addToCart = async (req, res) => {
                 },
                 {
                     $inc: {
-                        "cart.$.quantity": 1,
+                        "cart.$.quantity": Number(quantity),
                     },
                 }
             );

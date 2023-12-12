@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+#update-product-container {
+    max-width: 600px;
+    margin: 20px auto;
+    margin-top: 140px;
+    background-color:#deb4b7;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto; /* Enable scrolling within the form */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+.update-product-form {
+    max-width: 600px; /* Set your desired maximum width */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+h1 {
+    font-size: 24px;
+    color: #5f3f12;
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5f3f12;
+}
+input, textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #5f3f12;
+}
+button {
+    background-color: #b4efe8;
+    color: #5f3f12;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #92dbc7;
+}
